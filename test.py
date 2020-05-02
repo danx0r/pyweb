@@ -1,9 +1,9 @@
-import pyweb
+from pyweb import element
+from pprint import pprint
 
-pg=pyweb.html()
-pg.div("Hello Earthlings!")
-s=pg.generate()
-print(s)
-f=open("test.html", 'w')
-f.write(s)
-f.close()
+pg=element("html")
+pg.add(element('text', "Hello Earthlings!"))
+e=element('div')
+e.add(element('text', "please"))
+pg.add(e)
+pprint(pg)
