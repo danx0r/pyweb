@@ -7,3 +7,14 @@ e=element('div')
 e.add(element('text', "please"))
 pg.add(e)
 pprint(pg)
+
+def span():
+    pass
+
+html=div=text=span
+
+if html():
+    if div():
+        text("hello")
+    if span():
+        text("goodbye")
