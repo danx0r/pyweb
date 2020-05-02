@@ -29,3 +29,24 @@ pg=[
         ]}
     ]}
 ]
+
+pg=[
+    ["html", [
+        ["div", "hello"]
+        ["span", "goodbye"]
+    ]]
+]
+
+pg=[
+    {"html": [
+        {"div": "hello"},
+        {"span": "goodbye"},
+    ]}
+]
+
+pg=[
+    {html: [
+        {div: "hello"},
+        {span: "goodbye"},
+    ]}
+]
