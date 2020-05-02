@@ -1,23 +1,25 @@
-#import stringio
+#rsi protection:
+html_tags=[
+"html",
+"div",
+"span",
+"a",
+"href",
+"span",
+"style"]
 
-class element:
-    def __init__(self, tag, text=None):
-        self.tag=tag
-        if tag=='text':
-            self.body=text
-        else:
-            self.children=[]
+for t in html_tags:
+    globals()[t]=t
 
-    def add(self, e):
-        self.children.append(e)
+def get_tag(e):
+    for k in e.keys():
+        if k in html_tags:
+            return k
 
-    def __repr__(self):
-        if self.tag=='text':
-            return self.body
-        else:
-            kids=""
-            for k in self.children:
-                kids+=str(k)
-            s="<{0}>{1}</{0}>".format(self.tag, kids)
-            # print("S:",s)
-            return s
+def parse(py):
+    s=""
+    for e in py:
+        tag=get_tag(e)
+        body = e[tag]
+        if type(body)
+    return s
