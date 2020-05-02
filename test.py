@@ -11,7 +11,7 @@ pprint(pg)
 def span():
     pass
 
-html=div=text=span
+html=div=text=a=href=span
 
 if html():
     if div():
@@ -46,7 +46,9 @@ pg=[
 
 pg=[
     {html: [
-        {div: "hello"},
+        {div: [
+            {a: "link", href: "www.busyboxes.org"}
+        ]},
         {span: "goodbye"},
     ]}
 ]
