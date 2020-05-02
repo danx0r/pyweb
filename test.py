@@ -23,7 +23,7 @@ pg=[
     {"tag": "html", "children": [
         {"tag": "div", "children": [
             "hello"
-        ]}
+        ]},
         {"tag": "span", "children": [
             "goodbye"
         ]}
@@ -32,7 +32,7 @@ pg=[
 
 pg=[
     ["html", [
-        ["div", "hello"]
+        ["div", "hello"],
         ["span", "goodbye"]
     ]]
 ]
