@@ -18,3 +18,14 @@ if html():
         text("hello")
     if span():
         text("goodbye")
+
+pg=[
+    {"tag": "html", "children": [
+        {"tag": "div", "children": [
+            "hello"
+        ]}
+        {"tag": "span", "children": [
+            "goodbye"
+        ]}
+    ]}
+]
