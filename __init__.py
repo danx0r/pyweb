@@ -14,7 +14,10 @@ def get_tag(e):
 def parse(pyml, indent=0):
     # print ("A", pyml)
     if hasattr(pyml, 'lower'):  # raw text element
-        return "{0}{1}\n".format(" "*indent, pyml)
+        if len(pyml):
+            return "{0}{1}\n".format(" "*indent, pyml)
+        else:
+            return ''
     html=""
     for el in pyml:
         if hasattr(el, 'lower'):  # embedded text element
