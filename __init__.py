@@ -10,6 +10,30 @@ def get_tag(e):
         if k in html_tags:
             return k
 
+def get_childs(e):
+    t = get_tag(e)
+    v = e[t]
+    if hasattr(v, 'lower'):
+        return []
+    return v
+
+
+def get_by_id(p, i):                                #FIXME: create map of id's, this is N*N slow
+    for e in p:
+        if hasattr(e, 'lower'):
+            continue
+        if 'id' in e and e['id']==i:
+            return e
+        for c in get_childs(e):
+            ii = get_by_id(e, i)
+            if ii:
+                return ii
+    return None
+
+
+def get_childs_by_id(e, i):
+    return get_childs(get_by_id(e, i))
+
 
 def parse(pyml, indent=0):
     # print ("A", pyml)
