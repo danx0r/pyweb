@@ -1,7 +1,7 @@
 #rsi protection:
-import html_tags
+from . import html_tags
 html_tags = [x for x in dir(html_tags) if x[0] != '_']
-from html_tags import *                     #for PyCharm
+from .html_tags import *                     #for PyCharm
 
 INDENT=3
 
