@@ -1,7 +1,12 @@
 #rsi protection:
-from . import html_tags
+try:
+    import html_tags
+    from html_tags import *
+except:
+    from . import html_tags
+    from .html_tags import *
+
 html_tags = [x for x in dir(html_tags) if x[0] != '_']
-from .html_tags import *                     #for PyCharm
 
 INDENT=3
 
@@ -55,3 +60,25 @@ def parse(pyml, indent=0):
                 html += ' {0}="{1}"'.format(att, val)
         html += ">\n{0}{1}</{2}>\n".format(parse(body, indent=indent+INDENT), " "*indent, tag)
     return html
+
+
+if __name__=="__main__":
+    bod=[
+        {body: [
+            "hello",
+            {div: [
+                {a: "link", 'href': "http://www.busyboxes.org", 'style': "font-family: sans; background-color: pink"}
+            ]},
+            {span: "goodbye", 'style': "font-size: 200%; margin: 30px"},
+            {"button": "OK", "onclick": "alert('okay')"}                                    #regular string is fine too
+        ]}
+    ]
+
+    pyml=[
+        {html:[
+            {head: []},
+            {body: bod}
+        ]}
+    ]
+
+    print(parse(pyml))
