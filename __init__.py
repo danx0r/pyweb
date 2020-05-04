@@ -63,22 +63,33 @@ def parse(pyml, indent=0):
 
 
 if __name__=="__main__":
+    butstyl = "color: black; margin: 10px; padding: 2px; border: solid thin; text-decoration: none"
+    
+    list1 = []
+    
     bod=[
-        {body: [
-            "hello",
-            {div: [
-                {a: "link", 'href': "http://www.busyboxes.org", 'style': "font-family: sans; background-color: pink"}
-            ]},
-            {span: "goodbye", 'style': "font-size: 200%; margin: 30px"},
-            {"button": "OK", "onclick": "alert('okay')"}                                    #regular string is fine too
-        ]}
+        {form: [
+            {input: '', 'type': "text", 'name': "param1"},
+            {input: '', 'type': "submit", 'value': "Go for it"}
+        ],
+        'action': "act/update.html"
+        },
+    
+        {ul:list1, 'style': "padding-left: 0; margin-left: -10px; list-style: none;"}
     ]
-
+    
     pyml=[
         {html:[
             {head: []},
-            {body: bod}
+            {body: bod, 'style': "font-family: sans"}
         ]}
     ]
-
+    
+    for x in ('cat', 'dog', 'bird'):
+        el={li: [
+            {a: "edit", 'href': "act/update.html?edit=%s" % x, 'style': butstyl},
+            x
+        ], 'style': "margin-top: 10px; list-style-type: none"}
+        list1.append(el)
+    
     print(parse(pyml))
