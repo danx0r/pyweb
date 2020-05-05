@@ -42,6 +42,8 @@ def get_childs_by_id(e, i):
 
 def parse(pyml, indent=0):
     # print ("A", pyml)
+    if pyml == None:
+        return ""
     if hasattr(pyml, 'lower'):  # raw text element
         if len(pyml):
             return "{0}{1}\n".format(" "*indent, pyml)
