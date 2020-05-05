@@ -60,7 +60,7 @@ def parse_pyml(pyml, indent=0):
         for att, val in el.items():
             if att != tag:
                 html += ' {0}="{1}"'.format(att, val)
-        html += ">\n{0}{1}</{2}>\n".format(parse(body, indent=indent+INDENT), " "*indent, tag)
+        html += ">\n{0}{1}</{2}>\n".format(parse_pyml(body, indent=indent+INDENT), " "*indent, tag)
     return html
 
 
