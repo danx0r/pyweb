@@ -40,7 +40,7 @@ def get_childs_by_id(e, i):
     return get_childs(get_by_id(e, i))
 
 
-def parse(pyml, indent=0):
+def parse_pyml(pyml, indent=0):
     # print ("A", pyml)
     if pyml == None:
         return ""
@@ -94,4 +94,4 @@ if __name__=="__main__":
         ], 'style': "margin-top: 10px; list-style-type: none"}
         list1.append(el)
     
-    print(parse(pyml))
+    print(parse_pyml(pyml))
