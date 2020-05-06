@@ -85,7 +85,7 @@ if __name__=="__main__":
     pyml=[
         {html:[
             {head: []},
-            {body: bod, 'style': "font-family: sans"}
+            {body: bod, 'style': "font-family: sans-serif"}
         ]}
     ]
     
