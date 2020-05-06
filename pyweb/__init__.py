@@ -49,6 +49,8 @@ def parse_pyml(pyml, indent=0):
             return "{0}{1}\n".format(" "*indent, pyml)
         else:
             return ''
+    if  hasattr(pyml, 'update'):                            #rsi typing reduction act
+        pyml = [pyml]
     html=""
     for el in pyml:
         if hasattr(el, 'lower'):  # embedded text element
