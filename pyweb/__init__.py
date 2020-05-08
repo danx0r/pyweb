@@ -40,7 +40,7 @@ def get_childs_by_id(e, i):
     return get_childs(get_by_id(e, i))
 
 
-def parse_pyml(pyml, indent=0):
+def parse_pyml(pyml, indent=0, docstring="<!DOCTYPE html>"):
     # print ("A", pyml)
     if pyml == None:
         return ""
@@ -57,6 +57,8 @@ def parse_pyml(pyml, indent=0):
             html += "{0}{1}\n".format(" "*indent, el)
             continue
         tag=get_tag(el)                 #tag element
+        if tag=='html' and docstring:
+            html+="{0}\n".format(docstring)
         body = el[tag]
         html += "{0}<{1}".format(" "*indent, tag)
         for att, val in el.items():
