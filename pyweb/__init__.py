@@ -41,7 +41,7 @@ def get_childs_by_id(e, i):
 
 
 def parse_pyml(pyml, indent=0, docstring="<!DOCTYPE html>"):
-    # print ("A", pyml)
+    # print ("INDENT:", indent)
     if pyml == None:
         return ""
     if hasattr(pyml, 'lower'):  # raw text element
@@ -64,7 +64,10 @@ def parse_pyml(pyml, indent=0, docstring="<!DOCTYPE html>"):
         for att, val in el.items():
             if att != tag:
                 html += ' {0}="{1}"'.format(att, val)
-        html += ">\n{0}{1}</{2}>\n".format(parse_pyml(body, indent=indent+INDENT), " "*indent, tag)
+        if tag != 'link':
+            html += ">\n{0}{1}</{2}>\n".format(parse_pyml(body, indent=indent+INDENT), " "*indent, tag)
+        else:
+            html += ">\n{0}".format(parse_pyml(body, indent=indent+INDENT))
     return html
 
 
